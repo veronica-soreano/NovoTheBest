@@ -1,0 +1,434 @@
+@font-face {
+    font-family: 'VisbyLight';
+    src: url(fonts/VisbyCF-Light.otf) format(opentype);
+}
+
+@font-face {
+    font-family: 'VisbyBold';
+    src: url(fonts/VisbyCF-Heavy.otf) format(opentype);
+}
+
+@font-face {
+    font-family: 'VisbyRegular';
+    src: url(fonts/VisbyCF-Regular.otf) format(opentype);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile p ocupa tudo */
+main {
+    width: 100%;
+    padding: 0 10px;
+
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    main {
+        max-width: 1550px;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+
+.desktop {
+    display: block;
+    width: 100%
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width:896px) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #007131;
+    font-family: sans-serif;
+}
+
+.logo {
+    height: 28px;
+}
+
+@media(max-width: 896px) {
+    .logo {
+        height: 32px;
+    }
+
+    .cabecalho {
+        padding: 22px 5%;
+    }
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin-left: 10px;
+    padding: 0;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #fff;
+    text-align: left;
+    font-size: 18px;
+    transition: 0.3s;
+    padding-bottom: 5px;
+    font-family: "VisbyRegular";
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+    border-bottom: 6px solid #ffb800;
+    width: 60%;
+    height: 4px;
+    bottom: 5px;
+    left: 0px;
+    padding-bottom: 10px;
+    transform-origin: bottom;
+    transition: transform 0.25s ease-out;
+}
+
+.btn-franqueado {
+    background-color: #ffb800;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    /*font-weight: bold;*/
+    font-size: 20px;
+    transition: 0.3s;
+    font-family: "VisbyRegular";
+    white-space: nowrap;
+}
+
+.btn-franqueado:hover {
+    background-color: #e6a600;
+}
+
+.mobile-btn {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+    .cabecalho {
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .desktop-btn {
+        display: none;
+    }
+
+    .mobile-btn {
+        display: block;
+        margin-top: 15px;
+    }
+
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #007131;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0 30px 0;
+        gap: 20px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .menu-toggle:checked~.nav-list {
+        display: flex;
+    }
+
+    .menu-toggle:checked~.hamburger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked~.hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked~.hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+/*não foi eu que fiz*/
+.container-busca {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box input {
+    width: 450px;
+    height: 60px;
+    padding: 0 55px 0 25px;
+    border-radius: 28px;
+    border: 2px solid #f4a000;
+    font-size: 18px;
+    font-family: 'VisbyRegular';
+    background: transparent;
+}
+
+.input-box .lupa {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f4a000;
+    font-size: 18px;
+}
+
+/* Estado normal do botão */
+.btn-localizacao {
+    height: 60px;
+    padding: 0 30px;
+    border-radius: 28px;
+    border: 2px solid #f4a000;
+    color: #f4a000;
+    font-weight: bolder;
+    font-size: 18px;
+    font-family: "VisbyRegular";
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Estado Hover (Onde a mágica acontece) */
+.btn-localizacao:hover {
+    background: transparent;
+    color: black;
+}
+
+/* ajustes d mobile */
+@media (max-width: 896px) {
+    .container-busca {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .input-box,
+    .btn-localizacao {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .input-box input {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        height: 60px;
+        border-radius: 35px;
+    }
+
+    .btn-localizacao {
+        width: 100%;
+        max-width: 380px;
+        height: 60px;
+        border-radius: 35px;
+        justify-content: center;
+    }
+
+    .btn-localizacao:hover {
+        color: black;
+        background: transparent;
+        transform: scale(1.03);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'VisbyBold';
+    font-weight: lighter;
+    color: #007131;
+}
+
+.container-TextImg {
+    font-family: 'VisbyRegular';
+    position: relative;
+    min-height: auto;
+    width: 100%;
+}
+
+.segH1 {
+    margin: 35px 0 0 220px;
+    text-align: left;
+    font-size: 60px;
+    line-height: 1.1;
+    padding: 20px 16.5px;
+    margin-bottom: 10px;
+    max-width: 1000px;
+    font-weight: bold;
+    color: #0b6b3a;
+}
+
+h2 {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'VisbyLight';
+    font-weight: lighter;
+}
+
+
+.acai {
+    position: absolute;
+    right: 150px;
+    top: 80px;
+    width: 450px;
+    height: auto;
+    margin: 0;
+}
+
+@media screen and (max-width: 896px) {
+    .acai {
+        display: none;
+        position: static;
+    }
+
+    .quebra {
+        display: none;
+    }
+}
+
+p {
+    margin: 5px 0 0 235px;
+    padding: 0;
+    max-width: 760px;
+    font-family: 'VisbyLight', sans-serif;
+    font-size: 25px;
+    line-height: 1.45;
+    color: #555;
+}
+
+@media(max-width: 768px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    .segH1 {
+        font-size: 1.4rem;
+        text-align: center;
+        margin: 15px auto 10px auto;
+        padding: 0 10px;
+    }
+
+    p {
+        font-family: 'VisbyRegular';
+        max-width: 400px;
+        line-height: 1.6;
+        font-size: 1rem;
+        text-align: justify;
+        margin: 0 auto;
+        padding: 0 auto 20px auto;
+        margin: 20px;
+    }
+}
+
+.destaque {
+    color: rgb(248, 170, 0);
+}
+
+/*fazendo p deixar o mobile bonitinho*/
+.mobile-break {
+    display: none;
+}
+
+@media(max-width: 896px) {
+    .mobile-break {
+        display: inline;
+    }
+}
+
+.acabou {
+    display: block;
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
+.acabou2 {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .acabou {
+        display: none;
+    }
+
+    .acabou2 {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}

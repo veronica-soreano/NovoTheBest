@@ -96,7 +96,7 @@ nav {
 .nav-list li a {
     text-decoration: none;
     color: #fff;
-    font-size: 17px;
+    font-size: 14px;
     transition: 0.3s;
     font-family: "VisbyRegular", sans-serif;
     position: relative;
@@ -114,7 +114,7 @@ nav {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -22px; 
+    bottom: -23px; 
     width: 100%;
     height: 5px; 
     background-color: #ffb800;

@@ -420,3 +420,123 @@ p {
         height: auto;
     }
 }
+
+#mensagem-validacao {
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+    font-family: 'VisbyRegular', sans-serif;
+}
+
+#secao-resultados, 
+#secao-favoritos {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    font-family: 'VisbyRegular', sans-serif;
+}
+
+#secao-resultados h2 {
+    color: #007131;
+    margin-bottom: 20px;
+}
+
+#secao-favoritos h2 {
+    color: #f4a000;
+    margin-bottom: 20px;
+}
+
+
+#secao-resultados p,
+#secao-favoritos p {
+    margin: 0 auto !important; 
+    font-size: 18px; 
+    text-align: center;
+    color: #555;
+    max-width: 100%;
+}
+
+#lista-resultados, 
+#lista-favoritos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch; 
+}
+
+#btn-voltar-home {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: #007131;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family: 'VisbyRegular', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+#btn-voltar-home:hover {
+    background-color: #0b6b3a;
+    transform: scale(1.02);
+}
+
+
+
+.card-resultado,
+.card-favorito {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #f4a000;
+    padding: 20px;
+    border-radius: 16px;
+    width: 320px;
+    background-color: #fff;
+}
+
+.card-favorito {
+    border-color: #007131;
+}
+
+.card-resultado h3,
+.card-favorito h3 {
+    text-align: left;
+    color: #007131;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'VisbyBold', sans-serif;
+    font-size: 22px;
+}
+
+.card-favorito h3 {
+    color: #f4a000;
+}
+
+.card-resultado p,
+.card-favorito p {
+    margin: 0 0 20px 0 !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+}
+
+.btn-salvar {
+    background-color: #ffb800;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'VisbyRegular', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s;
+    margin-top: auto; 
+}
+
+.btn-salvar:hover {
+    background-color: #e6a600;
+}

@@ -40,25 +40,39 @@
             <img class="desktop" src="img/desktop.webp" alt="Imagem destaque The Best Açaí">
             <img class="mobile" src="img/mobile.png" alt="imagem destaque mobile The Best Açaí">
         </div>
+        
         <main>
             <div>
-                <h1>Descubra a <span class="destaque">The Best Açaí</span> mais<br class="mobile-break"> perto de você!
-                </h1>
+                <h1>Descubra a <span class="destaque">The Best Açaí</span> mais<br class="mobile-break"> perto de você!</h1>
                 <h2>Lembre-se de permitir acesso à sua localização</h2>
             </div>
 
+            <!-- Área de busca ajustada com os IDs -->
             <div class="container-busca">
-
                 <div class="input-box">
-                    <input type="text" placeholder="Digite aqui">
-                    <i class="fa-solid fa-magnifying-glass lupa"></i>
+                    <input type="text" id="input-busca" placeholder="Digite sua cidade (ex: Londrina)">
+                    <i id="btn-buscar" class="fa-solid fa-magnifying-glass lupa" style="cursor: pointer;"></i>
                 </div>
-
-                <button class="btn-localizacao">
-                    <i class="fa-solid fa-location-dot"></i>
-                    Minha localização
+                <button class="btn-localizacao" id="btn-favoritos">
+                    <i class="fa-solid fa-star"></i>
+                    Lojas Favoritas
                 </button>
             </div>
+
+         
+            <div id="mensagem-validacao"></div>
+
+            <div id="secao-resultados">
+                <h2>Resultados da Busca</h2>
+                <div id="lista-resultados"></div>
+            </div>
+
+            <div id="secao-favoritos">
+                <h2>Suas Lojas Favoritas</h2>
+                <div id="lista-favoritos"></div>
+                <button id="btn-voltar-home">Voltar</button>
+            </div>
+
             <div class="container-TextImg">
                 <H1 class="segH1">A <span class="destaque">maior</span> rede de self-<br class="quebra">service de açaí
                     do <br class="quebra"><span class="destaque">mundo!</span></H1>
@@ -70,8 +84,14 @@
                     cores, texturas e processos.
                 </p>
                 <img class="acai" src="img/acaislLegais.png" alt="ACAÍ">
+            </div>
         </main>
     </div>
+    
     <img class="acabou" src="img/finaliza.png" alt="acabou">
     <img class="acabou2" src="img/finaliza2.png" alt="acabou2">
-    </div>
+    
+  
+    <script src="script.js"></script>
+</body>
+</html>

@@ -162,6 +162,7 @@ nav {
 @media (max-width: 1200px) {
     .cabecalho {
         justify-content: space-between;
+        position: relative;
     }
 
     nav {
@@ -539,4 +540,47 @@ p {
 
 .btn-salvar:hover {
     background-color: #e6a600;
+}
+
+.btn-remover {
+    background-color: #a8232a;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'VisbyRegular', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s;
+    margin-top: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-remover:hover {
+    background-color: #82191e;
+    transform: scale(1.02);
+}
+
+/* Garante que o botão de remover fique bem ajustado em telas menores */
+@media (max-width: 768px) {
+    #lista-favoritos {
+        grid-template-columns: 1fr; /* Força os cards a ocuparem uma única coluna se a tela for muito pequena */
+        padding: 10px;
+    }
+
+    .card-favorito {
+        width: 100%; /* O card passa a ocupar a largura disponível na tela do celular */
+        max-width: 340px; /* Evita que o card fique esticado demais em celulares grandes */
+        margin: 0 auto; /* Centraliza o card na tela */
+    }
+
+    .btn-remover {
+        padding: 15px; /* Aumenta um pouco a área do clique no celular para facilitar o toque com o dedo */
+        font-size: 16px;
+    }
 }

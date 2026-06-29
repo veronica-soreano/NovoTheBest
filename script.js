@@ -127,6 +127,30 @@ btnFavoritos.addEventListener('click', () => {
     renderizarFavoritos();
 });
 
+function salvarFavorito(local) {
+    let favoritos = JSON.parse(localStorage.getItem('theBestFavoritos')) || [];
+    
+    const jaExiste = favoritos.find(fav => fav.place_id === local.place_id);
+    if (!jaExiste) {
+        favoritos.push({
+            place_id: local.place_id,
+            nome: local.display_name.split(',')[0],
+            endereco: local.display_name
+        });
+        localStorage.setItem('theBestFavoritos', JSON.stringify(favoritos));
+        alert('Loja favoritada com sucesso!');
+    } else {
+        alert('Esta localização já está nos seus favoritos.');
+    }
+}
+
+btnFavoritos.addEventListener('click', () => {
+    esconderTudo();
+    secaoFavoritos.style.display = 'block';
+    renderizarFavoritos();
+});
+
+// //atualizado p adicionar o botaão de remover 
 function renderizarFavoritos() {
     listaFavoritos.innerHTML = '';
     const favoritos = JSON.parse(localStorage.getItem('theBestFavoritos')) || [];
@@ -138,25 +162,51 @@ function renderizarFavoritos() {
 
     favoritos.forEach(fav => {
         const card = document.createElement('div');
-        card.style = 'border: 2px solid #007131; padding: 15px; border-radius: 16px; width: 300px; text-align: left;';
+        card.classList.add('card-favorito'); 
         
         const titulo = document.createElement('h3');
         titulo.textContent = fav.nome;
-        titulo.style.color = '#f4a000';
         
         const endereco = document.createElement('p');
         endereco.textContent = fav.endereco;
-        endereco.style.fontSize = '14px';
+
+        // //atualizado p adicionar o botaão de remover 
+        const btnRemover = document.createElement('button');
+        btnRemover.innerHTML = '<i class="fa-solid fa-trash"></i> Remover';
+        btnRemover.classList.add('btn-remover'); 
+        
+        // //atu p adicionar o botaão de remover 
+        btnRemover.onclick = () => removerFavorito(fav.place_id);
 
         card.appendChild(titulo);
         card.appendChild(endereco);
+        card.appendChild(btnRemover); // //atualizado p adicionar o botaão de remover 
         listaFavoritos.appendChild(card);
     });
 }
 
+// //atu p adicionar o botaão de remover (nova função de exclusão)
+function removerFavorito(placeId) {
+    let favoritos = JSON.parse(localStorage.getItem('theBestFavoritos')) || [];
+    
+    // //atu p adicionar o botaão de remover 
+    favoritos = favoritos.filter(fav => fav.place_id !== placeId);
+    
+    localStorage.setItem('theBestFavoritos', JSON.stringify(favoritos));
+    
+    // //atu p adicionar o botaão de remover 
+    renderizarFavoritos();
+}
 
 btnVoltarHome.addEventListener('click', () => {
     esconderTudo();
     containerTextImg.style.display = 'block';
     inputBusca.value = '';
+});
+
+//atualizado p funcionar com o enter
+inputBusca.addEventListener('keypress', (elemento) => {
+    if (elemento.key === 'Enter') {
+        btnBuscar.click(); // Simula o clique no botão de buscar quando o Enter é pressionado
+    }
 });
